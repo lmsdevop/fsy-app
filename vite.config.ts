@@ -7,29 +7,32 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.svg', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
         name: 'Meu PWA React TS',
         short_name: 'PWAReact',
         description: 'Exemplo simples de PWA com React + TypeScript',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#ffffff',
         theme_color: '#ffffff',
         icons: [
           {
             src: '/pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/png'
           },
           {
             src: '/pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
-      },
-    }),
+            type: 'image/png'
+          }
+        ]
+      }
+    })
   ],
   server: {
-    host: true,  // ← permite acesso externo (via IP da rede local)
-    port: 5173,  // você pode fixar a porta se quiser
-  },
+    host: true,
+    port: 5173
+  }
 })
